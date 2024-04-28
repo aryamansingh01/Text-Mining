@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Science Project Journey</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body> 
+        <div class="navbar">
+            <a href="Introduction.html">Introduction</a>
+            <a href="DataPrep_EDA.html">DataPrep_EDA</a>
+            <a href="Clustering.html">Clustering</a>
+            <a href="ARM.html">ARM</a>
+            <a href="LDA.html">LDA</a>
+            <a href="NavieBayes.html">Navie_Bayes</a>
+            <a href="DecTrees.html">DecTrees</a>
+            <a href="SVMs.html">SVMs</a>
+            <a href="Regression.html">Regression</a>
+            <a href="NN.html">NN</a>
+            <a href="Conclusions.html">Conclusions</a>
+            <a href="code.html">Code</a>
+        </div>
+        <section id="svm-overview">
+            <h2>Overview</h2>
+            <p>Support Vector Machines (SVMs) offer a powerful and versatile way of modeling complex datasets, particularly when the goal is classification or regression. Here’s a deeper look into how SVMs can be utilized for different topic goals:</p>
+            <h3>SVM for Binary Classification:</h3>
+            <p>If your topic involves a binary outcome, such as predicting whether a financial transaction is fraudulent or not, SVMs can be particularly effective. The model will classify transactions based on the features provided, learning from the training data to distinguish between the two classes. By using a non-linear kernel, SVM can handle complex, non-linear relationships between features.</p>
+            <h3>SVM for Multiclass Classification:</h3>
+            <p>For topics with more than two categories, such as classifying types of customer feedback into categories like 'positive', 'negative', or 'neutral', SVMs can be extended to handle multiple classes natively or by using strategies like one-vs-rest (OvR) or one-vs-one (OvO) approaches.</p>
+            <h3>SVM for Regression (SVR):</h3>
+            <p>For predictive analytics within your topic, such as forecasting sales or estimating real estate prices, Support Vector Regression can be utilized. The principle remains the same, but instead of finding the optimal hyperplane for classification, SVR tries to fit the best line within a threshold error margin.</p>
+            <h3>Hyperparameters in SVMs:</h3>
+            <ul>
+                <li><strong>C (Regularization):</strong> The C parameter controls the trade-off between achieving a low error on the training data and minimizing the norm of the weights. A low C makes the decision surface smooth, while a high C aims at classifying all training examples correctly by giving the model freedom to select more samples as support vectors.</li>
+                <li><strong>Kernel:</strong> The choice of kernel (linear, polynomial, RBF, sigmoid) is crucial and depends on the data. Kernel parameters like the degree of the polynomial and the gamma value in the RBF kernel need careful tuning.</li>
+                <li><strong>Gamma:</strong> In non-linear kernels, gamma defines how far the influence of a single training example reaches. Low values mean ‘far’ and high values mean ‘close’. The gamma parameter can be seen as the inverse of the radius of influence of samples selected by the model as support vectors.</li>
+            </ul>
+            <h3>Advantages of SVMs:</h3>
+            <ul>
+                <li>Effectiveness: SVMs are effective in high-dimensional spaces, even in cases where the number of dimensions exceeds the number of samples.</li>
+                <li>Versatility: The kernel trick is a real strength of SVM, making it capable of separating data in complex ways.</li>
+                <li>Robustness: SVMs are relatively robust against overfitting, especially in high-dimensional space.</li>
+            </ul>
+            <h3>Limitations of SVMs:</h3>
+            <ul>
+                <li>Scalability: For large datasets, the computational demands of using SVM can be very high. This is due to the complexity of solving the quadratic programming problem to find the support vectors.</li>
+                <li>Kernel Choice: Selecting the appropriate kernel and tuning its parameters can be challenging. The wrong choice can lead to an overfitting model.</li>
+            </ul>
+            <p>Using SVMs for Your Topic: Given these characteristics, applying SVMs to your topic would involve understanding your data, preprocessing, model training and selection, interpretation of results, and operationalizing the model to make predictions or inform decisions that pertain to your topic goals.</p>
+        </section>
+        <section id="svm-data-prep">
+            <h2>Data Preparation</h2>
+    <p>Supervised learning models like Support Vector Machines (SVMs) operate on a fundamental premise: they require labeled data to learn. This means every data point in the training set must be associated with a correct answer or outcome, known as a label. The model uses this labeled dataset to learn the relationship between the features (independent variables) and the label (dependent variable).</p>
+    <h3>Data Requirements for SVMs:</h3>
+    <ul>
+        <li><strong>Numeric Data:</strong> SVMs require that input features are numeric because they perform calculations with the feature values. If you have categorical data, you need to convert it into a numerical format through encoding techniques such as one-hot encoding or label encoding.</li>
+        <li><strong>Scaled Features:</strong> It's also crucial for SVMs that the feature data is scaled. This is because SVMs find a hyperplane to separate different classes and are sensitive to the scales of the features. Differences in scales across features can lead to a bias toward features with larger scales.</li>
+        <li><strong>Labeled Data:</strong> As a supervised algorithm, SVMs can only be trained on data that has been labeled. Each instance in the training set must include a feature vector and a corresponding label.</li>
+    </ul>
+    <h3>Creating Training and Testing Sets:</h3>
+    <p>To build an SVM model, you follow these steps:</p>
+    <ol>
+        <li><strong>Split the Data:</strong> Divide your labeled dataset into two parts: a training set and a testing set.</li>
+        <li>The training set is used to train the model. It learns the patterns in this data.</li>
+        <li>The testing set is used to evaluate the model's performance. It's essential that this data was not seen by the model during training to give an unbiased evaluation of its predictive power.</li>
+    </ol>
+    <p><strong>Disjoint Sets:</strong> The training and testing sets must be disjoint, meaning they should not share any data points. This prevents the model from simply memorizing the data (a problem called overfitting) and ensures that the performance metrics you obtain reflect the model's ability to generalize to new data.</p>
+    <p><strong>Use of Labeled Data:</strong> Only labeled data can be used in this process because the model needs to know the actual outcomes to learn effectively. In an SVM context, the labels are used to find the optimal separating hyperplane.</p>
+    <p>Here is a visual representation of the data we plan to use. Also, insights on how the Training and Testing sets were created and maintained disjoint for unbiased evaluation are discussed here.</p>
+    <img src="NBdata.png" alt="Data">
+        </section>
+        <section id="svm-code">
+            <h2>Code</h2>
+            <a href="https://github.com/aryamansingh01/Text_mining_code-">Link to the code</a>
+        </section>
+        <section id="svm-results">
+            <h2>Results</h2>
+           <p>The results from your Support Vector Machine (SVM) with a polynomial kernel and a cost parameter of 0.1 indicate that the classifier is performing well for the majority class (class 0), but it is not successful in classifying the minority class (class 1). This is a common scenario in datasets with a class imbalance.</p>
+         <h3>Confusion Matrix Interpretation:</h3>
+         <ul>
+           <li><strong>True Negatives (TN):</strong> The model predicted all 27 instances of class 0 correctly.</li>
+           <li><strong>False Negatives (FN):</strong> All 5 instances of class 1 were incorrectly classified as class 0.</li>
+           <li>There were no True Positives (TP) or False Positives (FP), indicating the model never predicted class 1.</li>
+        </ul>
+         <h3>Classification Report Insights:</h3>
+         <ul>
+            <li><strong>Precision for Class 0:</strong> The model has a high precision of 84% for the majority class. It is correctly identifying the negative class but at the cost of not recognizing the positive class.</li>
+            <li><strong>Recall for Class 0:</strong> The recall is 100%, indicating that all actual negative instances were identified correctly.</li>
+             <li><strong>Class 1 Metrics:</strong> The precision, recall, and F1-score for the minority class are 0. This tells us the model could not identify any of the instances from the minority class, which is a problem if predicting this class is important.</li>
+        </ul>
+         <p><strong>Accuracy:</strong> The overall accuracy is 84.375%, but this metric is misleading due to the imbalanced nature of the dataset. The model's apparent "success" is mostly due to its performance on the more prevalent negative class.</p>
+         <h3>Model Implications:</h3>
+        <ul>
+           <li><strong>Impact of Imbalance:</strong> The model's inability to correctly predict instances of the minority class might severely limit its usefulness for applications where correctly identifying the positive class is crucial.</li>
+           <li><strong>Potential Bias:</strong> The SVM's decision function seems to be biased towards the negative class, possibly because the penalty for misclassifying positive instances (set by the cost parameter) isn't high enough to encourage the model to take on more risk in classifying instances as the positive class.</li>
+           <li><strong>Kernel Suitability:</strong> While the polynomial kernel might allow for a more flexible decision boundary than a linear kernel, it may not be capturing the complexity necessary to distinguish between classes. Adjusting the degree of the polynomial or trying different kernels could yield different results.</li>
+         </ul>
+         <h3>Recommendations for Improvement:</h3>
+         <ul>
+            <li><strong>Cost Adjustment:</strong> Increasing the cost parameter may help the model pay more attention to the minority class by penalizing misclassifications more severely.</li>
+            <li><strong>Resampling Techniques:</strong> Employing resampling techniques such as SMOTE to balance the classes or adjusting class weights may improve the model's ability to identify the minority class.</li>
+            <li><strong>Kernel Exploration:</strong> Trying other kernels, such as the radial basis function (RBF) kernel, which can handle more complex non-linear data distributions, could lead to better performance.</li>
+            <li><strong>Cross-Validation:</strong> Using cross-validation with different kernel and cost combinations could help find the most effective model settings for your dataset.</li>
+         </ul>
+         <p><strong>Visualization:</strong> The visualization of the confusion matrix clearly illustrates the model's behavior, where the darker square on the top left indicates the correctly predicted instances of the negative class, and the lighter square on the bottom left indicates the missed positive instances.</p>
+         <p>Conclusion: The SVM with a polynomial kernel and cost of 0.1 is not adequately equipped to handle the minority class in this dataset. The next steps should involve experimenting with model parameters, including kernel functions and cost values, and implementing strategies to address the class imbalance to enhance the model's predictive capabilities for the minority class.</p>
+         <img src="SVMMatrix.png" alt="Matrix">
+         <img src="SVM_Report.png" alt="SVM Report ">
+        </section>
+        
+
+            <script src="style.js"></script>
+    </body>
+</html>
